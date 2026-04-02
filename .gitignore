@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Runtime data
+.silver/
+.ghost/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Native builds
+*.node
+*.dylib
+*.so
+
+# Compiled Swift helpers
+apps/browser/src/native/google-auth-helper
+
+# Claude Code (not part of Silver)
+claude_code/

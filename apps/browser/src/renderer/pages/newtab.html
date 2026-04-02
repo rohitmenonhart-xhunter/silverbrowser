@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+
+  <!-- Theme toggle -->
+  <button class="theme-toggle" id="theme-toggle" title="Switch theme">
+    <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- Greeting -->
+  <div class="hero">
+    <div class="hero-greeting" id="greeting"></div>
+    <div class="hero-sub" id="greeting-sub"></div>
+  </div>
+
+  <!-- Mode toggle: AI / Web -->
+  <div class="mode-toggle">
+    <div class="mode-ai-wrap" id="mode-ai-wrap">
+      <button class="mode-btn" id="mode-ai" title="Ask AI">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 2a8 8 0 0 0-8 8v10l2-1.5 2 1.5 2-1.5 2 1.5 2-1.5 2 1.5 2-1.5L20 20V10a8 8 0 0 0-8-8z"/><circle cx="9.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="11" r="1" fill="currentColor" stroke="none"/></svg>
+        <span id="ai-label">Ask AI</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="10" height="10"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <!-- Dropdown -->
+      <div class="ai-dropdown" id="ai-dropdown">
+        <div class="ai-dropdown-header">Choose AI</div>
+        <button class="ai-option" data-ai="claude">
+          <div class="ai-option-dot" style="background:#d4845a;"></div>
+          <div class="ai-option-info">
+            <div class="ai-option-name">Claude</div>
+            <div class="ai-option-desc">Anthropic</div>
+          </div>
+        </button>
+        <button class="ai-option" data-ai="chatgpt">
+          <div class="ai-option-dot" style="background:#19c37d;"></div>
+          <div class="ai-option-info">
+            <div class="ai-option-name">ChatGPT</div>
+            <div class="ai-option-desc">OpenAI</div>
+          </div>
+        </button>
+        <button class="ai-option" data-ai="gemini">
+          <div class="ai-option-dot" style="background:#4285f4;"></div>
+          <div class="ai-option-info">
+            <div class="ai-option-name">Gemini</div>
+            <div class="ai-option-desc">Google</div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <button class="mode-btn active" id="mode-web" title="Web Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Web Search
+    </button>
+  </div>
+
+  <!-- Prompt / Search box -->
+  <div class="prompt-wrap">
+    <textarea class="prompt-box" id="prompt" rows="1" placeholder="Search the web..." spellcheck="false"></textarea>
+    <button class="prompt-submit" id="submit" title="Go">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </div>
+
+  <!-- Frequently visited -->
+  <div class="section-label">Frequently Visited</div>
+  <div class="sites" id="sites">
+    <div class="empty">Loading...</div>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+</html>

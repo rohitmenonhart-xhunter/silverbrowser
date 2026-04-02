@@ -1,0 +1,5 @@
+export { PasswordManager } from './passwords'
+export { SafeFolder } from './safe-folder'
+export { Crypto } from './crypto'
+export { VaultAuth } from './auth'
+export type { SavedCredential, SafeFile } from './types'

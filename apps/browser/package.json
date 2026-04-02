@@ -1,0 +1,40 @@
+{
+  "name": "@silver/browser",
+  "version": "0.1.0",
+  "private": true,
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "unset ELECTRON_RUN_AS_NODE && electron-vite dev",
+    "build": "electron-vite build",
+    "package": "electron-builder"
+  },
+  "dependencies": {
+    "@silver/adblocker": "workspace:*",
+    "@silver/ghost": "workspace:*",
+    "@silver/importer": "workspace:*",
+    "@silver/llm": "workspace:*",
+    "@silver/shared": "workspace:*",
+    "@silver/shield": "workspace:*",
+    "@silver/tabs": "workspace:*",
+    "@silver/vault": "workspace:*",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.7",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.2",
+    "electron": "https://github.com/castlabs/electron-releases#v40.7.0+wvcus",
+    "electron-builder": "^26.0.12",
+    "electron-chrome-extensions": "^4.9.0",
+    "electron-extension-installer": "^2.0.1",
+    "electron-vite": "^3.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "zustand": "^5.0.5"
+  }
+}

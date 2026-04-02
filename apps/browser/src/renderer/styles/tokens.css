@@ -1,0 +1,123 @@
+/* Silver Browser — Design Tokens */
+/* Dark theme (default) and Light theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&display=swap');
+
+:root,
+[data-theme="dark"] {
+  /* Backgrounds */
+  --sv-bg-base:        #131316;
+  --sv-bg-raised:      #1b1b1f;
+  --sv-bg-overlay:     #222226;
+  --sv-bg-hover:       #28282e;
+  --sv-bg-active:      #2e2e35;
+
+  /* Borders */
+  --sv-border-subtle:  rgba(255, 255, 255, 0.06);
+  --sv-border-default: rgba(255, 255, 255, 0.09);
+  --sv-border-strong:  rgba(255, 255, 255, 0.14);
+
+  /* Text */
+  --sv-text-primary:   #ececef;
+  --sv-text-secondary: #8b8d98;
+  --sv-text-tertiary:  #5c5e6a;
+  --sv-text-ghost:     #3e4049;
+
+  /* Accent */
+  --sv-accent:         #a8b1c8;
+  --sv-accent-bright:  #d1d5e4;
+  --sv-accent-muted:   rgba(168, 177, 200, 0.12);
+
+  /* Semantic */
+  --sv-success:        #3dd68c;
+  --sv-danger:         #f27474;
+  --sv-warning:        #e4b44c;
+
+  /* Glass */
+  --sv-glass-bg:       rgba(20, 20, 24, 0.72);
+  --sv-glass-border:   rgba(255, 255, 255, 0.08);
+  --sv-glass-blur:     20px;
+
+  /* Shadows */
+  --sv-shadow-sm:      0 1px 2px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.15);
+  --sv-shadow-md:      0 4px 12px rgba(0,0,0,0.35), 0 1px 4px rgba(0,0,0,0.2);
+  --sv-shadow-lg:      0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.25);
+  --sv-shadow-glow:    0 0 20px rgba(168, 177, 200, 0.08);
+
+  /* Incognito */
+  --sv-incognito:      rgba(139, 92, 246, 0.10);
+  --sv-incognito-border: rgba(139, 92, 246, 0.18);
+}
+
+[data-theme="light"] {
+  --sv-bg-base:        #f6f4f1;
+  --sv-bg-raised:      #ffffff;
+  --sv-bg-overlay:     #efecea;
+  --sv-bg-hover:       #e8e5e2;
+  --sv-bg-active:      #dfdcd8;
+
+  --sv-border-subtle:  rgba(0, 0, 0, 0.06);
+  --sv-border-default: rgba(0, 0, 0, 0.10);
+  --sv-border-strong:  rgba(0, 0, 0, 0.18);
+
+  --sv-text-primary:   #1c1a17;
+  --sv-text-secondary: #5c5a55;
+  --sv-text-tertiary:  #8a8884;
+  --sv-text-ghost:     #b8b5b0;
+
+  --sv-accent:         #3d3529;
+  --sv-accent-bright:  #2a2318;
+  --sv-accent-muted:   rgba(61, 53, 41, 0.08);
+
+  --sv-success:        #1a8a52;
+  --sv-danger:         #c93131;
+  --sv-warning:        #b08508;
+
+  --sv-glass-bg:       rgba(246, 244, 241, 0.80);
+  --sv-glass-border:   rgba(0, 0, 0, 0.08);
+  --sv-glass-blur:     20px;
+
+  --sv-shadow-sm:      0 1px 2px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+  --sv-shadow-md:      0 4px 12px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+  --sv-shadow-lg:      0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  --sv-shadow-glow:    0 0 20px rgba(61, 53, 41, 0.06);
+
+  --sv-incognito:      rgba(139, 92, 246, 0.06);
+  --sv-incognito-border: rgba(139, 92, 246, 0.12);
+}
+
+/* Typography */
+:root {
+  --sv-font-sans:     'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --sv-font-mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+/* Spacing scale */
+:root {
+  --sv-space-0:  0;
+  --sv-space-1:  4px;
+  --sv-space-2:  8px;
+  --sv-space-3:  12px;
+  --sv-space-4:  16px;
+  --sv-space-5:  20px;
+  --sv-space-6:  24px;
+  --sv-space-8:  32px;
+}
+
+/* Border radius scale */
+:root {
+  --sv-radius-sm:   4px;
+  --sv-radius-md:   8px;
+  --sv-radius-lg:   12px;
+  --sv-radius-xl:   16px;
+  --sv-radius-full: 9999px;
+}
+
+/* Transitions */
+:root {
+  --sv-ease:          cubic-bezier(0.25, 0.1, 0.25, 1);
+  --sv-ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --sv-t-fast:        120ms var(--sv-ease);
+  --sv-t-normal:      200ms var(--sv-ease);
+  --sv-t-slow:        350ms var(--sv-ease);
+}

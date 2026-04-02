@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings — Silver Browser</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-brand">
+    Settings
+    <span>Silver Browser v0.1.0</span>
+  </div>
+  <div class="nav-item active" data-page="general"><span class="nav-icon">⚙</span> General</div>
+  <div class="nav-item" data-page="ghost"><span class="nav-icon">👻</span> Ghost Agent</div>
+  <div class="nav-item" data-page="adblock"><span class="nav-icon">🛡</span> Ad Blocking</div>
+  <div class="nav-item" data-page="privacy"><span class="nav-icon">🔒</span> Privacy</div>
+  <div class="nav-item" data-page="downloads"><span class="nav-icon">⬇</span> Downloads</div>
+  <div class="nav-item" data-page="extensions"><span class="nav-icon">🧩</span> Extensions</div>
+  <div class="nav-item" data-page="vault"><span class="nav-icon">🔐</span> Vault</div>
+  <div class="nav-item" data-page="import"><span class="nav-icon">📥</span> Import Data</div>
+  <div class="nav-item" data-page="about"><span class="nav-icon">ℹ</span> About</div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- General -->
+  <div class="page active" id="page-general">
+    <div class="page-title">General</div>
+    <div class="page-desc">Basic browser settings</div>
+    <div class="group">
+      <div class="group-title">Search</div>
+      <div class="row">
+        <div><div class="row-label">Search Engine</div><div class="row-desc">Used when typing in the address bar</div></div>
+        <div class="row-right">
+          <select id="search-engine" style="width:160px">
+            <option value="google" selected>Google</option>
+            <option value="duckduckgo">DuckDuckGo</option>
+            <option value="bing">Bing</option>
+            <option value="brave">Brave Search</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-title">Startup</div>
+      <div class="row">
+        <div><div class="row-label">On Startup</div><div class="row-desc">What to show when Silver opens</div></div>
+        <div class="row-right">
+          <select id="startup" style="width:180px">
+            <option value="newtab" selected>Open New Tab</option>
+            <option value="restore">Restore previous session</option>
+            <option value="custom">Open specific page</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-title">Appearance</div>
+      <div class="row">
+        <div><div class="row-label">Theme</div><div class="row-desc">Browser color scheme</div></div>
+        <div class="row-right">
+          <select id="theme" style="width:140px">
+            <option value="dark" selected>Dark</option>
+            <option value="light">Light</option>
+            <option value="system">System</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ghost Agent -->
+  <div class="page" id="page-ghost">
+    <div class="page-title">Ghost Agent</div>
+    <div class="page-desc">AI-powered autonomous browser agent</div>
+    <div class="group">
+      <div class="group-title">API Configuration</div>
+      <div class="row">
+        <div><div class="row-label">OpenRouter API Key</div><div class="row-desc">Get one at openrouter.ai/keys</div></div>
+        <div class="row-right">
+          <input type="password" id="api-key" placeholder="sk-or-v1-..." style="width:220px">
+          <button class="btn btn-primary" id="save-key">Save</button>
+          <span class="saved-msg" id="key-saved">Saved</span>
+        </div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Model</div><div class="row-desc">AI model powering Ghost</div></div>
+        <div class="row-right">
+          <select id="ghost-model" style="width:200px">
+            <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
+            <option value="anthropic/claude-haiku-4">Claude Haiku 4</option>
+            <option value="openai/gpt-4o">GPT-4o</option>
+            <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
+            <option value="google/gemini-2.5-flash-preview">Gemini 2.5 Flash</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-title">Behavior</div>
+      <div class="row">
+        <div><div class="row-label">Max Steps</div><div class="row-desc">Maximum actions per task</div></div>
+        <div class="row-right">
+          <select id="ghost-steps" style="width:100px">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Show Thinking</div><div class="row-desc">Display what Ghost is reasoning</div></div>
+        <div class="row-right"><div class="toggle on" data-setting="ghost.showThinking"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ad Blocking -->
+  <div class="page" id="page-adblock">
+    <div class="page-title">Ad Blocking</div>
+    <div class="page-desc">Block ads, trackers, and annoyances</div>
+    <div class="group">
+      <div class="group-title">Blocking</div>
+      <div class="row">
+        <div><div class="row-label">Block Ads & Trackers</div><div class="row-desc">Network-level ad and tracker blocking</div></div>
+        <div class="row-right"><div class="toggle on" data-setting="adblock.enabled"></div></div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Block YouTube Ads</div><div class="row-desc">Skip and hide YouTube advertisements</div></div>
+        <div class="row-right"><div class="toggle on" data-setting="adblock.youtube"></div></div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Hide Cookie Banners</div><div class="row-desc">Auto-dismiss cookie consent popups</div></div>
+        <div class="row-right"><div class="toggle on" data-setting="adblock.cookies"></div></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-title">Stats</div>
+      <div class="row">
+        <div><div class="row-label">Ads Blocked This Session</div><div class="row-desc" id="ads-count">Loading...</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy -->
+  <div class="page" id="page-privacy">
+    <div class="page-title">Privacy & Security</div>
+    <div class="page-desc">Control your browsing privacy</div>
+    <div class="group">
+      <div class="group-title">Tracking</div>
+      <div class="row">
+        <div><div class="row-label">Send Do Not Track</div><div class="row-desc">Ask websites not to track you</div></div>
+        <div class="row-right"><div class="toggle on" data-setting="privacy.dnt"></div></div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Block Third-Party Cookies</div><div class="row-desc">Prevent cross-site tracking cookies</div></div>
+        <div class="row-right"><div class="toggle" data-setting="privacy.blockCookies"></div></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-title">Data</div>
+      <div class="row">
+        <div><div class="row-label">Clear Browsing History</div><div class="row-desc">Remove all browsing history</div></div>
+        <div class="row-right"><button class="btn" id="clear-history">Clear</button></div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Clear Cookies & Site Data</div><div class="row-desc">Remove cookies and cached data</div></div>
+        <div class="row-right"><button class="btn btn-danger" id="clear-cookies">Clear All</button></div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Clear Cache</div><div class="row-desc">Remove cached files and images</div></div>
+        <div class="row-right"><button class="btn" id="clear-cache">Clear</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Downloads -->
+  <div class="page" id="page-downloads">
+    <div class="page-title">Downloads</div>
+    <div class="page-desc">Download preferences</div>
+    <div class="group">
+      <div class="group-title">Location</div>
+      <div class="row">
+        <div><div class="row-label">Save files to</div><div class="row-desc">Default download directory</div></div>
+        <div class="row-right">
+          <input type="text" id="download-path" value="~/Downloads" style="width:200px" readonly>
+          <button class="btn" id="change-path">Change</button>
+        </div>
+      </div>
+      <div class="row">
+        <div><div class="row-label">Ask where to save each file</div><div class="row-desc">Show save dialog before downloading</div></div>
+        <div class="row-right"><div class="toggle" data-setting="downloads.askPath"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extensions -->
+  <div class="page" id="page-extensions">
+    <div class="page-title">Extensions</div>
+    <div class="page-desc">Add superpowers to Silver</div>
+
+    <!-- Coming Soon Hero -->
+    <div style="text-align:center;padding:48px 20px;background:linear-gradient(135deg,rgba(192,196,206,0.06),rgba(110,231,168,0.04));border-radius:16px;margin-bottom:24px;">
+      <div style="font-size:48px;margin-bottom:16px;">🧩</div>
+      <div style="font-size:22px;font-weight:600;color:#c0c4ce;margin-bottom:6px;">Silver Extension Store</div>
+      <div style="font-size:13px;color:#6ee7a8;font-weight:500;margin-bottom:12px;">Coming Soon</div>
+      <div style="font-size:12px;color:#5a5d66;max-width:380px;margin:0 auto;line-height:1.7;">
+        Curated, privacy-first extensions built for Silver.<br>
+        Ad blockers, productivity tools, developer utilities, and more — all verified safe.
+      </div>
+      <div style="margin-top:20px;display:flex;gap:8px;justify-content:center;">
+        <button class="btn" id="ext-open-dir" style="padding:8px 20px;">Open Extensions Folder</button>
+        <button class="btn" id="ext-install-local" style="padding:8px 20px;">Load Unpacked</button>
+      </div>
+    </div>
+
+    <!-- Installed Extensions -->
+    <div class="group">
+      <div class="group-title">Installed Extensions</div>
+      <div id="ext-list">
+        <div class="row"><div><div class="row-label" style="color:#5a5d66;">No extensions installed</div><div class="row-desc">Place extension folders in ~/.silver/extensions/ and restart</div></div></div>
+      </div>
+    </div>
+
+    <!-- What's Coming -->
+    <div class="group">
+      <div class="group-title">What's Coming</div>
+      <div class="row">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">🛡</span>
+          <div><div class="row-label">Privacy Guard</div><div class="row-desc">Block fingerprinting, trackers, and surveillance scripts</div></div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">🌙</span>
+          <div><div class="row-label">Dark Mode Pro</div><div class="row-desc">Force dark mode on every website with smart color adaptation</div></div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">📸</span>
+          <div><div class="row-label">Screenshot & Annotate</div><div class="row-desc">Full-page screenshots with markup, blur, and share</div></div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">🔑</span>
+          <div><div class="row-label">Password Sharing</div><div class="row-desc">Securely share passwords with team members</div></div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">⚡</span>
+          <div><div class="row-label">Ghost Automations</div><div class="row-desc">Community-built browser automations powered by Ghost</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vault -->
+  <div class="page" id="page-vault">
+    <div class="page-title">Vault</div>
+    <div class="page-desc">Encrypted passwords and secure file storage</div>
+
+    <!-- Auth gate — shown before unlock -->
+    <div id="vault-locked">
+      <div style="text-align:center;padding:40px 0;">
+        <div style="font-size:48px;margin-bottom:12px;">🔐</div>
+        <div style="font-size:14px;color:#c0c4ce;margin-bottom:6px;">Vault is locked</div>
+        <div style="font-size:12px;color:#5a5d66;margin-bottom:20px;">Authenticate to view passwords and secure files</div>
+        <button class="btn btn-primary" id="vault-unlock-btn" style="padding:10px 32px;font-size:13px;">Unlock Vault</button>
+      </div>
+    </div>
+
+    <!-- Unlocked content -->
+    <div id="vault-unlocked" style="display:none;">
+
+      <!-- PIN setup -->
+      <div class="group">
+        <div class="group-title">Security</div>
+        <div class="row">
+          <div><div class="row-label">Vault PIN</div><div class="row-desc" id="pin-status">Loading...</div></div>
+          <div class="row-right">
+            <button class="btn" id="change-pin-btn">Change PIN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saved Passwords -->
+      <div class="group">
+        <div class="group-title">Saved Passwords</div>
+        <div id="passwords-list">
+          <div style="color:#5a5d66;font-size:12px;padding:8px 0;">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Safe Folder -->
+      <div class="group">
+        <div class="group-title">Safe Folder</div>
+        <div style="margin-bottom:10px;">
+          <button class="btn" id="safe-add-btn">+ Add File</button>
+          <input type="file" id="safe-file-input" style="display:none;" multiple>
+        </div>
+        <div id="safe-files-list">
+          <div style="color:#5a5d66;font-size:12px;padding:8px 0;">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import -->
+  <div class="page" id="page-import">
+    <div class="page-title">Import Data</div>
+    <div class="page-desc">Import bookmarks, history, and passwords from another browser</div>
+    <div class="group">
+      <div class="group-title">Choose a browser</div>
+      <div class="import-grid" id="import-grid">
+        <div style="color:#5a5d66;font-size:12px;">Click to detect installed browsers...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="page" id="page-about">
+    <div class="page-title">About Silver</div>
+    <div class="page-desc">The AI-native browser</div>
+    <div class="group">
+      <div style="text-align:center;padding:40px 0;">
+        <div style="font-size:48px;margin-bottom:12px;">🌐</div>
+        <div style="font-size:20px;font-weight:600;color:#c0c4ce;letter-spacing:0.05em;">SILVER BROWSER</div>
+        <div style="font-size:12px;color:#848894;margin-top:4px;">Version 0.1.0</div>
+        <div style="font-size:12px;color:#5a5d66;margin-top:16px;">Built by Hitroo Labs</div>
+        <div style="font-size:11px;color:#3a3d44;margin-top:8px;">Electron + React + Ghost Agent</div>
+        <div style="margin-top:24px;">
+          <a href="https://hitroo.com" style="color:#848894;font-size:12px;text-decoration:none;">hitroo.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="settings.js"></script>
+</body>
+</html>

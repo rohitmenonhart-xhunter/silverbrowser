@@ -1,0 +1,14 @@
+{
+  "name": "silver-browser",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Silver Browser — AI-native browser with Ghost agent",
+  "author": "Hitroo Labs",
+  "scripts": {
+    "dev": "unset ELECTRON_RUN_AS_NODE && pnpm --filter @silver/browser dev",
+    "build": "pnpm --filter @silver/browser build",
+    "package": "pnpm --filter @silver/browser package",
+    "lint": "eslint .",
+    "test": "vitest"
+  }
+}

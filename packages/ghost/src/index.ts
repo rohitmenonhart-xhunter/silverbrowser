@@ -1,0 +1,5 @@
+export { GhostAgent } from './agent'
+export { GHOST_TOOLS } from './tools/browser'
+export { ToolRegistry, registerTool } from './tool-registry'
+export { createWorkspace } from './workspace'
+export type { GhostEvents, AgentConfig, Workspace, ToolContext, ToolDefinition } from './types'
