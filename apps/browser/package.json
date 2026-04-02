@@ -3,10 +3,54 @@
   "version": "0.1.0",
   "private": true,
   "main": "out/main/index.js",
+  "author": "Hitroo Labs <hello@hitroo.com>",
+  "description": "The open-source AI-native browser",
   "scripts": {
     "dev": "unset ELECTRON_RUN_AS_NODE && electron-vite dev",
     "build": "electron-vite build",
-    "package": "electron-builder"
+    "package": "electron-vite build && electron-builder --mac",
+    "package:dir": "electron-vite build && electron-builder --mac --dir"
+  },
+  "build": {
+    "appId": "com.hitroo.silver",
+    "productName": "Silver Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "!out/renderer/src/**"
+    ],
+    "extraFiles": [
+      {
+        "from": "src/renderer/pages",
+        "to": "Resources/pages",
+        "filter": ["**/*"]
+      }
+    ],
+    "electronDist": "../../node_modules/.pnpm/electron@https+++codeload.github.com+castlabs+electron-releases+tar.gz+3412c2dfbbaad4136f5b6767e902e3859222d1e8/node_modules/electron/dist",
+    "electronVersion": "40.7.0+wvcus",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["arm64"]
+        }
+      ],
+      "darkModeSupport": true,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "identity": null
+    },
+    "dmg": {
+      "title": "Silver Browser",
+      "contents": [
+        { "x": 130, "y": 220 },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ]
+    }
   },
   "dependencies": {
     "@silver/adblocker": "workspace:*",

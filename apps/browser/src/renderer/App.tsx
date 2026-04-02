@@ -3,6 +3,7 @@ import { Sidebar } from './components/sidebar/Sidebar'
 import { FindBar } from './components/chrome/FindBar'
 import { PermissionBar } from './components/chrome/PermissionBar'
 import { GhostPanel } from './components/ghost/GhostPanel'
+import { Onboarding } from './components/onboarding/Onboarding'
 import { useTabStore } from './stores/tab-store'
 import { useTheme } from './hooks/useTheme'
 
@@ -46,7 +47,15 @@ export function App() {
   const setTabs = useTabStore((s) => s.setTabs)
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [sidebarBg, setSidebarBg] = useState('var(--sv-bg-base)')
+  const [showOnboarding, setShowOnboarding] = useState(false)
   const { theme } = useTheme()
+
+  // Check if onboarding needed
+  useEffect(() => {
+    window.silver.settings.get('onboarding.complete').then((done: any) => {
+      if (!done) setShowOnboarding(true)
+    }).catch(() => setShowOnboarding(true))
+  }, [])
 
   useEffect(() => {
     const unsubscribe = window.silver.tabs.onUpdate(setTabs)
@@ -83,6 +92,10 @@ export function App() {
   const toggleSidebar = useCallback(() => {
     try { (window as any).silver?.ui?.sidebar() } catch {}
   }, [])
+
+  if (showOnboarding) {
+    return <Onboarding onComplete={() => setShowOnboarding(false)} />
+  }
 
   return (
     <div style={{

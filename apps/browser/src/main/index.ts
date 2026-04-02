@@ -98,7 +98,15 @@ function createWindow() {
     backgroundColor: '#131316',
     transparent: false,
     vibrancy: 'sidebar',
+    icon: join(__dirname, '../../build/icon.png'),
   } as any)
+
+  // Set dock icon on macOS
+  if (process.platform === 'darwin') {
+    const { nativeImage } = require('electron')
+    const iconPath = join(__dirname, '../../build/icon.png')
+    try { app.dock.setIcon(nativeImage.createFromPath(iconPath)) } catch {}
+  }
 
   // Set UA on the session too (belt and suspenders)
   session.defaultSession.setUserAgent(CHROME_UA)
